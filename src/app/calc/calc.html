@@ -1,0 +1,33 @@
+<div>
+  <h3 class="text-xl font-semibold mb-2">Calculadora Simples</h3>
+  <div class="space-y-4">
+    <input
+      type="number"
+      [(ngModel)]="num1"
+      placeholder="Número 1"
+      class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <select
+      [(ngModel)]="operator"
+      class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input
+      type="number"
+      [(ngModel)]="num2"
+      placeholder="Número 2"
+      class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      (click)="calculate()"
+      class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      Calcular
+    </button>
+    <p class="mt-2 text-lg">Resultado: {{ result }}</p>
+  </div>
+</div>

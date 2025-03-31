@@ -1,0 +1,13 @@
+<div>
+  <h3 class="text-xl font-semibold mb-2">Analisador de Palavra</h3>
+  <input
+    [(ngModel)]="word"
+    (input)="analyzeWord()"
+    placeholder="Digite uma palavra"
+    class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+  <p class="mt-2 text-lg">Quantidade de caracteres: {{ charCount }}</p>
+  <p *ngIf="isPalindrome !== null" class="mt-2 text-lg">
+    A palavra é {{ isPalindrome ? 'um palíndromo' : 'não um palíndromo' }}.
+  </p>
+</div>
