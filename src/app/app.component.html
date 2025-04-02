@@ -1,12 +1,16 @@
-<router-outlet></router-outlet>
+<nav class="bg-blue-500 text-white p-4 flex justify-center space-x-4">
+  <a routerLink="/app-home" routerLinkActive="border-b-2 border-white" class="p-2">
+    Home
+  </a>
+  <a routerLink="/app-word-analyzer" routerLinkActive="border-b-2 border-white" class="p-2">
+    Analisador de Palavra
+  </a>
+  <a routerLink="/app-simple-calculator" routerLinkActive="border-b-2 border-white" class="p-2">
+    Calculadora
+  </a>
+</nav>
 
-<h1 class="text-3xl font-bold text-blue-500 mb-4">Hello Tailwind com Angular!</h1>
-
-<!-- Contêiner para os dois componentes lado a lado -->
-<div class="flex space-x-4">
-  <!-- Componente Analisador de Palavra -->
-  <app-word-analyzer class="w-1/2 p-4 border rounded-lg shadow-lg bg-white"></app-word-analyzer>
-
-  <!-- Componente Calculadora Simples -->
-  <app-simple-calculator class="w-1/2 p-4 border rounded-lg shadow-lg bg-white"></app-simple-calculator>
+<!-- Onde as páginas são exibidas -->
+<div class="p-4">
+  <router-outlet></router-outlet>
 </div>

@@ -1,33 +1,56 @@
-<div>
-  <h3 class="text-xl font-semibold mb-2">Calculadora Simples</h3>
-  <div class="space-y-4">
-    <input
-      type="number"
-      [(ngModel)]="num1"
-      placeholder="Número 1"
-      class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <select
-      [(ngModel)]="operator"
-      class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-    >
-      <option value="+">+</option>
-      <option value="-">-</option>
-      <option value="*">*</option>
-      <option value="/">/</option>
-    </select>
-    <input
-      type="number"
-      [(ngModel)]="num2"
-      placeholder="Número 2"
-      class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <button
-      (click)="calculate()"
-      class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-    >
-      Calcular
+<div class="max-w-xs mx-auto bg-white p-6 rounded-lg shadow-lg">
+  <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Calculadora</h3>
+
+  <!-- Display -->
+  <div class="mb-4 p-5 text-right bg-gray-700 text-white rounded-lg text-3xl font-mono font-bold shadow-inner">
+    {{ display || '0' }}
+  </div>
+
+  <!-- Botões -->
+  <div class="grid grid-cols-4 gap-2">
+    <!-- Números (3x3) -->
+    <div class="col-span-3 grid grid-cols-3 gap-2">
+      <button *ngFor="let num of [1,2,3,4,5,6,7,8,9]" 
+              (click)="appendNumber(num)" 
+              class="btn w-16 h-16 bg-gray-600 hover:bg-gray-500 text-white font-bold rounded-xl shadow-md">
+        {{ num }}
+      </button>
+    </div>
+
+    <!-- Operadores principais em coluna lateral -->
+    <div class="flex flex-col space-y-2">
+      <button *ngFor="let op of ['+', '-', '*']" 
+              (click)="setOperator(op)" 
+              class="btn w-16 h-16 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-md">
+        {{ op }}
+      </button>
+    </div>
+
+    <!-- Zero e operadores finais alinhados -->
+    <button (click)="appendNumber(0)" 
+            class="btn w-16 h-16 bg-gray-600 hover:bg-gray-500 text-white font-bold rounded-xl shadow-md">
+      0
     </button>
-    <p class="mt-2 text-lg">Resultado: {{ result }}</p>
+
+    <button (click)="setOperator('.')" 
+            class="btn w-16 h-16 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-md">
+      .
+    </button>
+
+    <button (click)="setOperator('/')" 
+            class="btn w-16 h-16 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-md">
+      /
+    </button>
+
+    <button (click)="clear()" 
+            class="btn w-16 h-16 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl shadow-md">
+      C
+    </button>
+
+    <!-- Botão de calcular sozinho na linha de baixo -->
+    <button (click)="calculate()" 
+            class="btn col-span-4 w-full h-16 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-md">
+      =
+    </button>
   </div>
 </div>

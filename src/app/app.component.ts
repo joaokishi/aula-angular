@@ -1,15 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { WordAnalyzerComponent } from './word/word';
-import { SimpleCalculatorComponent } from './calc/calc';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, WordAnalyzerComponent, SimpleCalculatorComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  animations: [
+    trigger('routeAnimations', [
+      transition('* <=> *', [
+        style({ opacity: 0 }),
+        animate('400ms ease-in-out', style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class AppComponent {
-  title = 'aula-angular';
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
 }
