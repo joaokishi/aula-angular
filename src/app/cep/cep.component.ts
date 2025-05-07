@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-consulta-cep',
   standalone: true,
   templateUrl: './cep.component.html',
-  imports: [CommonModule, FormsModule], // <-- ADICIONAR AQUI
+  imports: [CommonModule, FormsModule, HttpClientModule], // <-- ADICIONAR AQUI
 })
 export class ConsultaCepComponent {
   cep = '';
