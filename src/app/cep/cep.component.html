@@ -1,0 +1,26 @@
+<div class="max-w-md mx-auto p-4 bg-white rounded shadow">
+    <h2 class="text-xl font-bold mb-4">Consultar Endereço por CEP</h2>
+  
+    <input [(ngModel)]="cep"
+           placeholder="Digite o CEP (somente números)"
+           class="w-full p-2 border border-gray-300 rounded mb-3" />
+  
+    <button (click)="buscarCep()"
+            class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+      Buscar
+    </button>
+  
+    <div *ngIf="erro" class="text-red-500 mt-3">{{ erro }}</div>
+  
+    <div *ngIf="resultado && !resultado.erro" class="mt-4">
+      <p><strong>Logradouro:</strong> {{ resultado.logradouro }}</p>
+      <p><strong>Bairro:</strong> {{ resultado.bairro }}</p>
+      <p><strong>Cidade:</strong> {{ resultado.localidade }}</p>
+      <p><strong>Estado:</strong> {{ resultado.uf }}</p>
+    </div>
+  
+    <div *ngIf="resultado?.erro" class="text-red-500 mt-3">
+      CEP não encontrado.
+    </div>
+  </div>
+  

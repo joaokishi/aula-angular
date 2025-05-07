@@ -1,14 +1,9 @@
-<nav class="bg-blue-500 text-white p-4 flex justify-center space-x-4">
-  <a routerLink="/app-home" routerLinkActive="border-b-2 border-white" class="p-2">
-    Home
-  </a>
-  <a routerLink="/app-word-analyzer" routerLinkActive="border-b-2 border-white" class="p-2">
-    Analisador de Palavra
-  </a>
-  <a routerLink="/app-simple-calculator" routerLinkActive="border-b-2 border-white" class="p-2">
-    Calculadora
-  </a>
-</nav>
+<mat-tab-group [(selectedIndex)]="selectedIndex" (selectedTabChange)="onTabChange($event)">
+  <mat-tab label="Home" [routerLink]="['/app-home']" routerLinkActive="active-tab"></mat-tab>
+  <mat-tab label="Analisador de Palavras" [routerLink]="['/app-word-analyzer']" routerLinkActive="active-tab"></mat-tab>
+  <mat-tab label="Caculadora" [routerLink]="['/app-simple-calculator']" routerLinkActive="active-tab"></mat-tab>
+  <mat-tab label="Consulta CEP" [routerLink]="['/app-consulta-cep']" routerLinkActive="active-tab"></mat-tab>
+</mat-tab-group>
 
 <!-- Onde as páginas são exibidas -->
 <div class="p-4">

@@ -1,0 +1,18 @@
+/* Centralizando as tabs */
+mat-tab-group {
+    display: flex;
+    justify-content: center; /* Centraliza as abas horizontalmente */
+  }
+  
+  /* Reduzindo o tamanho das abas */
+  .mat-tab-label {
+    font-size: 14px; /* Diminui o tamanho da fonte das abas */
+    padding: 6px 12px; /* Ajusta o padding para deixar a aba menor */
+    min-width: 100px; /* Ajusta o tamanho mínimo das abas */
+  }
+  
+  /* Adiciona um estilo extra ao foco das abas */
+  .mat-tab-label-active {
+    font-weight: bold; /* Deixa o texto da aba ativa em negrito */
+  }
+  
